@@ -1,0 +1,40 @@
+
+syntax = "proto3";
+// *****Varibale Name Must be in camel case*****
+service testingService {
+  rpc getTest (testRequest) returns (testReply) {}
+  rpc userInfo (userInfoRequest) returns (userInfoResponse) {}
+}
+
+// The request message containing the user's name.
+message testRequest {
+  required string id = 1;
+}
+
+
+// The response message containing the greetings
+message testReply {
+  optional int32 type_operation = 1;
+  optional int32 subtype = 2;
+  optional int32 sum_operation = 3;
+  optional string paymenttypes = 4;
+  optional string knumber = 5;
+}
+
+message userInfoRequest {
+  required string username = 1;
+}
+
+message userAddress {
+  required string addressLine_1 = 1;
+  required string addressLine_2 = 2;
+  required int32 pincode = 3;
+}
+message userInfoResponse {
+  required string username = 1;
+  optional int32 age = 2;
+  optional string mobile_no = 3;
+  optional string email = 4;
+  repeated string hobbies = 5;
+  optional userAddress address = 6;
+}
